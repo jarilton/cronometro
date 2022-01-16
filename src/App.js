@@ -36,7 +36,15 @@ class App extends Component {
   }
 
   limpar() {
-    alert('cronômetro limpado com sucesso!!')
+    if(this.timer !== null) {
+      clearInterval(this.timer)
+      this.timer = null
+    }
+
+    let state = this.state
+    state.numero = 0
+    state.botao = 'Iniciar'
+    this.setState(state)
   }
   
   render() {
